@@ -1,0 +1,11 @@
+import React, { useState } from 'react';
+import { Alert, Pressable, StyleSheet, Text } from 'react-native';
+import { useLocalSearchParams } from 'expo-router';
+import Screen from '../../../components/Screen';
+import { events } from '../../../data/events';
+import { useEvents } from '../../../context/EventContext';
+import { sendBookmarkNotification } from '../../../utils/notifications';
+export default function Details(){const {id}=useLocalSearchParams();const event=events.find(e=>e.id===id);const {savedIds,toggleSaved}=useEvents();const [busy,setBusy]=useState(false);if(!event)return <Screen><Text>Event not found.</Text></Screen>;
+const saved=savedIds.includes(event.id);async function handleToggle(){if(busy)return;toggleSaved(event.id);if(!saved){setBusy(true);try{await sendBookmarkNotification(event.title)}catch(e){Alert.alert('Notification unavailable',e.message)}finally{setBusy(false)}}}
+return <Screen><Text style={s.emoji}>{event.emoji}</Text><Text style={s.category}>{event.category}</Text><Text style={s.title}>{event.title}</Text><Text style={s.label}>📅  {event.date} at {event.time}</Text><Text style={s.label}>📍  {event.venue}</Text><Text style={s.label}>👥  {event.seats} places</Text><Text style={s.label}>🏫  {event.organizer}</Text><Text style={s.heading}>About this event</Text><Text style={s.description}>{event.description}</Text><Pressable disabled={busy} style={[s.button,saved&&s.saved]} onPress={handleToggle}><Text style={s.buttonText}>{busy?'Please wait...':saved?'Remove from saved':'Bookmark this event'}</Text></Pressable><Text style={s.hint}>Bookmarking triggers an immediate local notification when permission is granted.</Text></Screen>}
+const s=StyleSheet.create({emoji:{fontSize:66,marginBottom:12},category:{fontSize:14,color:'#2563eb',fontWeight:'800'},title:{fontSize:27,fontWeight:'800',color:'#0f172a',marginVertical:12},label:{fontSize:15,color:'#475569',marginVertical:8},heading:{fontSize:19,fontWeight:'800',marginTop:28,marginBottom:10},description:{color:'#475569',lineHeight:24},button:{backgroundColor:'#2563eb',padding:17,borderRadius:12,marginTop:28},saved:{backgroundColor:'#475569'},buttonText:{color:'#fff',textAlign:'center',fontWeight:'800'},hint:{fontSize:12,color:'#64748b',marginTop:12}});

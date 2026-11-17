@@ -1,0 +1,8 @@
+export const events = [
+  { id:'1', title:'Introduction to Data Science', category:'Workshop', date:'2026-11-20', time:'09:00 AM', venue:'Science Faculty Auditorium', organizer:'Statistics & Computer Science Society', seats:120, description:'Hands-on introduction to data analysis, visualization, and practical career pathways.', emoji:'📊' },
+  { id:'2', title:'Career Readiness & CV Clinic', category:'Career', date:'2026-11-23', time:'01:30 PM', venue:'Career Guidance Unit', organizer:'University Career Guidance Unit', seats:45, description:'Improve your CV, prepare for interviews, and receive practical career advice.', emoji:'💼' },
+  { id:'3', title:'Web Development Bootcamp', category:'Workshop', date:'2026-11-25', time:'10:00 AM', venue:'Computing Laboratory 02', organizer:'Computing Students Association', seats:60, description:'Build a small responsive website using modern frontend fundamentals.', emoji:'💻' },
+  { id:'4', title:'Research Poster Showcase', category:'Academic', date:'2026-11-27', time:'09:30 AM', venue:'Faculty Main Hall', organizer:'Faculty Research Committee', seats:200, description:'Explore student research posters and discuss projects with presenters.', emoji:'🔬' },
+  { id:'5', title:'Green Campus Volunteer Day', category:'Community', date:'2026-11-29', time:'08:00 AM', venue:'University Main Entrance', organizer:'Environmental Society', seats:80, description:'Join students in a campus cleanup and sustainability awareness drive.', emoji:'🌱' },
+  { id:'6', title:'Mobile App Design Meetup', category:'Workshop', date:'2026-12-02', time:'02:00 PM', venue:'Innovation Hub', organizer:'Technology Club', seats:70, description:'Explore mobile UI design, prototyping, and usability principles.', emoji:'📱' },
+];

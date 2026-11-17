@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Campus Event Hub",
+    "slug": "campus-event-hub",
+    "scheme": "campusevents",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-notifications",
+        {
+          "defaultChannel": "event-reminders"
+        }
+      ],
+      "expo-font"
+    ],
+    "android": {
+      "package": "com.student.campuseventhub"
+    },
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
